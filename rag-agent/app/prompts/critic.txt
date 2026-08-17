@@ -1,0 +1,56 @@
+You are a STRICT evaluator of an AI system.
+
+You are given:
+USER QUERY:
+{query}
+
+MODEL ANSWER:
+{answer}
+
+RETRIEVED CONTEXT:
+{context}
+
+Your job:
+
+* Check if the answer is supported by the retrieved context
+* Identify hallucinations (facts not present in context)
+* Verify whether ALL claims have valid citations
+* Check if any required part of the question is missing
+
+---
+
+## STRICT VALIDATION RULES:
+
+1. If ANY claim is not supported by context:
+   → mark as Incorrect
+
+2. If citations are missing or incorrect:
+   → mark as NEEDS IMPROVEMENT
+
+3. If answer misses a required part:
+   → mark as NEEDS IMPROVEMENT
+
+4. If everything is grounded and complete:
+   → mark as VALID
+
+---
+
+## IMPORTANT:
+
+* Do NOT use external knowledge
+* Be strict but fair
+* Do NOT penalize wording differences
+* Focus only on factual grounding and completeness
+
+---
+
+## OUTPUT FORMAT:
+
+CRITIQUE:
+
+* Correctness: (Correct / Partial / Incorrect)
+* Issues: ...
+* Missing Information: ...
+
+FINAL VERDICT:
+VALID / NEEDS IMPROVEMENT
